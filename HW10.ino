@@ -33,8 +33,8 @@ void loop() {
   // Blink the blue LED every second, turn on/off every half second
   digitalWrite(blueLedPin, (secondNow % 2) == 0);
 
-  // using map() to turn the minuteProgress into brightness
-  int brightness = map(minuteProgress, 0, 60000, 0, 2000);
+  // using map() to turn the minuteProgress into brightness (in resolution of the PWM signal, brightness is from 0-255)
+  int brightness = map(minuteProgress, 0, 60000, 0, 255);
 
   //I can't get analogWrite() to work, but I found a tutoral using ledc to control fading of light, so I followed that for this assignment.
   // Attach the yellow LED to LEDC channel 0 for PWM control
